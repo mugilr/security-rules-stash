@@ -1,0 +1,15 @@
+apiVersion: security.accuknox.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: mitre-tactic-presistence-kernel-modules
+spec:
+  selectorLabels:
+      nodeSelector:
+          hostname: xyz 
+  process:
+    matchPaths: 
+    - path: /usr/sbin/insmod
+    - path: /usr/sbin/modprobe    
+  action:
+    Audit
+  severity: 5
