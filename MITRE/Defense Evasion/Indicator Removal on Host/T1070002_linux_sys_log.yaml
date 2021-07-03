@@ -1,14 +1,13 @@
-apiVersion: security.accuknox.com/v1
+apiVersion: security.kubearmor.com/v1
 kind: KubeArmorPolicy
 metadata:
   name: mitre-tactic-defense-evasion-system-log
   namespace: multiubuntu
 spec:
   tags: ["MITRE", "Defense Evasion"]
-  severity: 5
   selector:
       matchLabels:
-          container: ubuntu-1 
+          container: ubuntu-5 
   file:
     matchDirectories:
     - dir: /var/log/
@@ -17,3 +16,4 @@ spec:
 
   action:
     Block
+  severity: 5
